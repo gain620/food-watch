@@ -46,6 +46,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="Dun-RX-O7K" id="PNz-d6-2a3"/>
                         <outlet property="imageVIew" destination="fdj-L0-nWu" id="r2O-ug-dJI"/>
+                        <outlet property="photoButton" destination="kgV-17-xwO" id="87f-UB-dn8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

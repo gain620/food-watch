@@ -8,13 +8,15 @@
 
 import UIKit
 import VisualRecognitionV3
+import SVProgressHUD
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    let apiKey = "CeyE6zOv-v5gxA0fI4GlVA6yb4PB-8p1AG8z73eHYEop"
+    let apiKey = ""
     let version = "2019-03-20"
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var photoButton: UIBarButtonItem!
     @IBOutlet weak var imageVIew: UIImageView!
     
     let imagePicker = UIImagePickerController()
@@ -28,6 +30,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        cameraButton.isEnabled = false
+        photoButton.isEnabled = false
+        SVProgressHUD.show()
+        
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageVIew.image = image
@@ -55,11 +62,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 // for cleaning the result array
                 self.classificationResults.removeAll()
                 
+                //var tempStr = ""
                 for index in 0..<classes.count {
                     self.classificationResults.append(classes[index].className)
+//                    tempStr += classes[index].className as! String
                 }
                 
+                
                 print(self.classificationResults)
+                
+                DispatchQueue.main.async {
+                    self.navigationItem.title = self.classificationResults[0]
+                    self.cameraButton.isEnabled = true
+                    self.photoButton.isEnabled = true
+                    SVProgressHUD.dismiss()
+                }
             }
             
             
