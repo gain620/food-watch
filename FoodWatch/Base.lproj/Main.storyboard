@@ -32,6 +32,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="kGT-Ya-KVf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="kgV-17-xwO">
+                            <connections>
+                                <action selector="libraryTapped:" destination="BYZ-38-t0r" id="ga2-ag-XMN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Dun-RX-O7K">
                             <connections>
                                 <action selector="cameraTapped:" destination="BYZ-38-t0r" id="6xW-vK-vRt"/>
